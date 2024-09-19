@@ -1,4 +1,4 @@
-# Angular Material Table Example
+# Periodic Table in Angular
 
 This project demonstrates how to create a responsive data table using Angular and Angular Material. The table allows for filtering and editing of data entries.
 
