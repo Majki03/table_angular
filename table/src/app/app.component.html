@@ -1,0 +1,45 @@
+<div>
+  <!-- Input field for filtering the table data -->
+  <input matInput placeholder="Filter" (input)="applyFilter($event)" />
+</div>
+
+<!-- Table that uses Angular Material's table component -->
+<table mat-table [dataSource]="dataSource">
+
+  <!-- Definition for the 'position' column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>No.</th> <!-- Header cell for position -->
+    <td mat-cell *matCellDef="let element">{{element.position}}</td> <!-- Data cell for position -->
+  </ng-container>
+
+  <!-- Definition for the 'name' column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th> <!-- Header cell for name -->
+    <td mat-cell *matCellDef="let element">{{element.name}}</td> <!-- Data cell for name -->
+  </ng-container>
+
+  <!-- Definition for the 'weight' column -->
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef>Weight</th> <!-- Header cell for weight -->
+    <td mat-cell *matCellDef="let element">{{element.weight}}</td> <!-- Data cell for weight -->
+  </ng-container>
+
+  <!-- Definition for the 'symbol' column -->
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef>Symbol</th> <!-- Header cell for symbol -->
+    <td mat-cell *matCellDef="let element">{{element.symbol}}</td> <!-- Data cell for symbol -->
+  </ng-container>
+
+  <!-- Definition for the 'actions' column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th> <!-- Header cell for actions -->
+    <td mat-cell *matCellDef="let element">
+      <button mat-button (click)="openEditDialog(element)">Edit</button> <!-- Button to edit the element -->
+    </td>
+  </ng-container>
+
+  <!-- Define the header row using the displayed columns -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <!-- Define the data rows using the displayed columns -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
